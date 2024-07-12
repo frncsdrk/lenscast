@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+//
+// lenscast executable
+
+const app = require('../dist/app')
+
+app.start()
