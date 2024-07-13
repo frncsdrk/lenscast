@@ -4,6 +4,12 @@ Serve images and videos directly from filesystem to a browser
 
 ## Usage
 
+Default **Port**: `9000`
+
+**Environment Variables**
+
+- `LENSCAST_PORT` -- Overwrite port via environment
+
 ### Setup
 
 ```

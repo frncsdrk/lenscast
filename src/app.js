@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors')
+const config = require('config');
 
 start = () => {
   const app = express();
@@ -9,7 +10,7 @@ start = () => {
   app.use(express.urlencoded({ extended: false }));
   app.use(cors());
 
-  server = app.listen(9000, () => {
+  server = app.listen(process.env.LENSCAST_PORT || config.get('service.server.port'), () => {
     console.log('app is running on', server.address().port);
   });
 }
