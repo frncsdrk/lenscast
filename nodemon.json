@@ -1,6 +1,5 @@
 {
-  "ext": "*.coffee",
   "events": {
-    "restart": "npm run build && echo 'rebuilt'"
+    "restart": "echo 'reloaded'"
   }
 }

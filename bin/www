@@ -2,6 +2,6 @@
 //
 // lenscast executable
 
-const app = require('../dist/app')
+const app = require('../src/app')
 
 app.start()

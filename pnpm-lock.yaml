@@ -18,9 +18,6 @@ importers:
       '@randomgoods/tap-spec':
         specifier: ^5.0.4
         version: 5.0.4
-      coffeescript:
-        specifier: ^2.7.0
-        version: 2.7.0
       nodemon:
         specifier: ^3.1.4
         version: 3.1.4
@@ -294,11 +291,6 @@ packages:
 
   cliui@6.0.0:
     resolution: {integrity: sha512-t6wbgtoCXvAzst7QgXxJYqPt0usEfbgQdftEPbLL/cvv6HPE5VgvqCuAIDR0NgU52ds6rFwqrgakNLrHEjCbrQ==}
-
-  coffeescript@2.7.0:
-    resolution: {integrity: sha512-hzWp6TUE2d/jCcN67LrW1eh5b/rSDKQK6oD6VMLlggYVUUFexgTH9z3dNYihzX4RMhze5FTUsUmOXViJKFQR/A==}
-    engines: {node: '>=6'}
-    hasBin: true
 
   color-convert@1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
@@ -1722,8 +1714,6 @@ snapshots:
       string-width: 4.2.3
       strip-ansi: 6.0.1
       wrap-ansi: 6.2.0
-
-  coffeescript@2.7.0: {}
 
   color-convert@1.9.3:
     dependencies:

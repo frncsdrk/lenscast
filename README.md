@@ -17,7 +17,6 @@ pnpm run start -- port=9000
 - [ ] Setup
   - [x] git repo
   - [x] pnpm
-  - [x] coffeescript
   - [x] express
   - [x] nodemon
 - [ ] Configuration

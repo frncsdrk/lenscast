@@ -5,18 +5,15 @@
   "main": "bin/www",
   "private": true,
   "scripts": {
-    "build": "npm run build:compile",
-    "build:compile": "coffee -c -m -o dist/ src/",
     "dev": "nodemon --ignore dist/ --ignore test/",
     "start": "./bin/www",
     "test": "npm run test:raw | tap-spec",
-    "test:compile": "npm run build:compile && coffee -c -t -o test/js test/",
-    "test:nyc": "npm run test:compile && nyc npm test",
-    "test:raw": "npm run test:compile && tape test/js/**/*.js"
+    "test:nyc": "nyc npm test",
+    "test:raw": "tape test/js/**/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:frncsdrk/fsdb.git"
+    "url": "git@github.com:frncsdrk/lenscast.git"
   },
   "keywords": [
     "lenscast",
@@ -36,7 +33,6 @@
   },
   "devDependencies": {
     "@randomgoods/tap-spec": "^5.0.4",
-    "coffeescript": "^2.7.0",
     "nodemon": "^3.1.4",
     "nyc": "^15.1.0",
     "tape": "^4.17.0"
