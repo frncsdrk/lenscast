@@ -6,10 +6,8 @@
   "private": true,
   "scripts": {
     "dev": "nodemon --ignore dist/ --ignore test/",
-    "start": "./bin/www",
-    "test": "npm run test:raw | tap-spec",
-    "test:nyc": "nyc npm test",
-    "test:raw": "tape test/js/**/*.js"
+    "docs:generate": "apidoc -i src -o docs",
+    "start": "./bin/www"
   },
   "repository": {
     "type": "git",
@@ -27,14 +25,15 @@
   },
   "homepage": "https://github.com/frncsdrk/lenscast#readme",
   "license": "Unlicense",
+  "engines": {
+    "node": ">= 20.0.0"
+  },
   "dependencies": {
+    "config": "^3.3.12",
     "cors": "^2.8.5",
     "express": "^4.19.2"
   },
   "devDependencies": {
-    "@randomgoods/tap-spec": "^5.0.4",
-    "nodemon": "^3.1.4",
-    "nyc": "^15.1.0",
-    "tape": "^4.17.0"
+    "nodemon": "^3.1.4"
   }
 }

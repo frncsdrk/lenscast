@@ -12,6 +12,22 @@ pnpm run build
 pnpm run start -- port=9000
 ```
 
+## Development
+
+### Documentation
+
+**Setup**
+
+```
+pnpm i -g apidoc
+```
+
+**Generate docs**
+
+```
+pnpm run docs:generate
+```
+
 ## TODO
 
 - [ ] Setup
@@ -19,6 +35,7 @@ pnpm run start -- port=9000
   - [x] pnpm
   - [x] express
   - [x] nodemon
+  - [x] apidoc
 - [ ] Configuration
   - [ ] Base directory
   - [ ] Video autoplay
