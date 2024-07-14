@@ -62,6 +62,10 @@ pnpm run docs:generate
   - [ ] Videos
 - [ ] Responsiveness (Mobile / TV friendliness)
 
+## Resources
+
+- [samplelib](https://samplelib.com/)
+
 ## Contributing
 
 See [CONTRIBUTING](https://github.com/frncsdrk/lenscast/blob/main/CONTRIBUTING.md)

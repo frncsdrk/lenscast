@@ -1,3 +1,4 @@
 service:
   server:
     port: 9000
+    root_directory: /home/$whoami/.lenscast
