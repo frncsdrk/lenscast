@@ -3,6 +3,7 @@ const cors = require('cors')
 const config = require('config');
 
 const healthz = require('./routes/healthz');
+const image = require('./routes/image');
 const video = require('./routes/video');
 
 start = () => {
@@ -14,6 +15,7 @@ start = () => {
   app.use(cors());
 
   app.use('/healthz', healthz);
+  app.use('/image', image);
   app.use('/video', video);
 
   server = app.listen(process.env.LENSCAST_PORT || config.get('service.server.port'), () => {

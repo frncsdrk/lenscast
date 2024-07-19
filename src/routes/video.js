@@ -2,7 +2,7 @@ const fs = require('fs');
 const config = require('config');
 const express = require('express');
 
-const respond = require('../utils/respond');
+// const respond = require('../utils/respond');
 
 const router = express.Router();
 
@@ -13,7 +13,7 @@ const router = express.Router();
  *
  * @apiVersion 0.0.0
  *
- * @apiSuccess {String}  path    Path to video in root directory
+ * @apiQuery {String}  path    Path to video in root directory
  *
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
