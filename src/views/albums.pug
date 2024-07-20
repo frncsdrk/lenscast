@@ -1,0 +1,9 @@
+html
+  head
+    title Albums | Lenscast
+  body
+    h1 Albums
+    ul
+      for file in files
+        li
+          a(href='/overview?path=' + file)= file

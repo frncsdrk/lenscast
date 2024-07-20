@@ -43,11 +43,12 @@ pnpm run docs:generate
   - [x] nodemon
   - [x] apidoc
 - [ ] Configuration
-  - [ ] Base directory
+  - [x] Base directory
   - [ ] Video autoplay
   - [ ] Slideshow: Display photo for n seconds
 - [ ] List files
   - [ ] File names
+  - [ ] Differentiate between directories and files
   - [ ] Preview (Thumbnails)
 - [ ] Thumbnails
 - [ ] Overlay (full-screen)
@@ -61,6 +62,10 @@ pnpm run docs:generate
   - [ ] Photos
   - [ ] Videos
 - [ ] Responsiveness (Mobile / TV friendliness)
+
+## Thumbnails
+
+[Module: NPM](https://www.npmjs.com/package/image-thumbnail)
 
 ## Resources
 

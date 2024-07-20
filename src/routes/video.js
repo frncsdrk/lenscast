@@ -3,6 +3,7 @@ const config = require('config');
 const express = require('express');
 
 // const respond = require('../utils/respond');
+const getRootDirectory = require('../utils/fs-list').getRootDirectory;
 
 const router = express.Router();
 
@@ -22,7 +23,7 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   // src: https://medium.com/@developerom/playing-video-from-server-using-node-js-d52e1687e378
   const path = req.query.path.replace(/"|'/g, '');
-  const videoPath = config.get('service.server.root_directory').replace('$whoami', process.env.USER) + '/' + path;
+  const videoPath = getRootDirectory() + '/' + path;
   const fileExtension = path.split('.').at(-1);
   const stat = fs.statSync(videoPath);
   const fileSize = stat.size;
