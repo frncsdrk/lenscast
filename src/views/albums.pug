@@ -4,6 +4,6 @@ html
   body
     h1 Albums
     ul
-      for file in files
+      for dir in directories
         li
-          a(href='/overview?path=' + file)= file
+          a(href='/overview?path=' + dir)= dir

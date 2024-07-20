@@ -4,4 +4,12 @@ html
   body
     ul
       for file in files
-        li= file
+        li
+          if file.image
+            img(src=`/api/image?path=${path}/${file.name}`)
+            p= `${path}/${file.name}`
+          else if file.video
+            video(width=320 height=240 controls)
+              source(src=`/api/video?path=${path}/${file.name}`)
+            p= `${path}/${file.name}`
+
