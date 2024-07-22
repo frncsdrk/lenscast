@@ -5,11 +5,13 @@ html
     ul
       for file in files
         li
-          if file.image
-            img(src=`/api/image?path=${path}/${file.name}`)
-            p= `${path}/${file.name}`
-          else if file.video
+          if file.isImage
+            img(src=`/api/image?path=${path}/${file.name}` width=320 height=240)
+            p
+              a(href=`/detail?path="${path}/${file.name}"`)= `${path}/${file.name}`
+          else if file.isVideo
             video(width=320 height=240 controls)
               source(src=`/api/video?path=${path}/${file.name}`)
-            p= `${path}/${file.name}`
+            p
+              a(href=`/detail?path="${path}/${file.name}"`)= `${path}/${file.name}`
 

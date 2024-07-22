@@ -44,13 +44,14 @@ const listFiles = (path, cb) => {
     cb(
       files
         .filter(dirent => !dirent.isDirectory())
+        .filter(file => isImage(file.name) || isVideo(file.name)) // Check if file format is supported
         .map(file => {
           return {
             name: file.name,
             extension: getFileExtension(file.name),
             // path: path + '/' + file.name,
-            image: isImage(file.name),
-            video: isVideo(file.name),
+            isImage: isImage(file.name),
+            isVideo: isVideo(file.name),
           }
         })
     );
@@ -59,6 +60,8 @@ const listFiles = (path, cb) => {
 
 module.exports = {
   getRootDirectory,
+  isImage,
+  isVideo,
   listDirectories,
   listFiles,
 };

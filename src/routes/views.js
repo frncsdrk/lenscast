@@ -35,4 +35,18 @@ router.get('/overview', (req, res, next) => {
   });
 });
 
+router.get('/detail', (req, res, next) => {
+  const path = req.query.path && req.query.path.replace(/"|'/g, '') || '';
+  res.render(
+    'detail',
+    {
+      path,
+      file: {
+        isImage: fsList.isImage(path),
+        isVideo: fsList.isVideo(path),
+      },
+    }
+  );
+});
+
 module.exports = router;

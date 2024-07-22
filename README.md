@@ -47,8 +47,8 @@ pnpm run docs:generate
   - [ ] Video autoplay
   - [ ] Slideshow: Display photo for n seconds
 - [ ] List files
-  - [ ] File names
-  - [ ] Differentiate between directories and files
+  - [x] File names
+  - [x] Differentiate between directories and files
   - [ ] Preview (Thumbnails)
 - [ ] Thumbnails
 - [ ] Overlay (full-screen)

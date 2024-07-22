@@ -1,0 +1,11 @@
+html
+  head
+    title Detail | Lenscast
+  body
+    if file.isImage
+      img(src=`/api/image?path=${path}`)
+      p= `${path}`
+    else if file.isVideo
+      video(controls)
+        source(src=`/api/video?path=${path}`)
+      p= `${path}`
