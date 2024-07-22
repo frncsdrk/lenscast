@@ -49,4 +49,17 @@ router.get('/detail', (req, res, next) => {
   );
 });
 
+router.get('/slideshow', (req, res, next) => {
+  const path = req.query.path && req.query.path.replace(/"|'/g, '') || '';
+  fsList.listFiles(fsList.getRootDirectory() + path, (files) => {
+    res.render(
+      'slideshow',
+      {
+        files,
+        path
+      }
+    );
+  });
+});
+
 module.exports = router;
