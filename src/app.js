@@ -17,6 +17,8 @@ start = () => {
   app.use(express.urlencoded({ extended: false }));
   app.use(cors());
 
+  app.use('/static', express.static('public'));
+
   app.set("view engine", "pug");
   app.set("views", path.join(__dirname, 'views'));
 

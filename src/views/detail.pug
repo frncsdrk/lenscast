@@ -1,6 +1,7 @@
 html
   head
     title Detail | Lenscast
+    link(href="/static/styles/app.css" rel="stylesheet")
   body
     if file.isImage
       img(src=`/api/image?path=${path}`)
