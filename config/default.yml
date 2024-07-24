@@ -2,3 +2,8 @@ service:
   server:
     port: 9000
     root_directory: /home/$whoami/.lenscast
+  slideshow:
+    image:
+      duration: 7 # seconds
+    video:
+      autoplay: 1 # 0 == off // 1 == on

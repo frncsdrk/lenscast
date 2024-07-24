@@ -3,6 +3,7 @@ html
     title Slideshow | Lenscast
     link(href="/static/styles/app.css" rel="stylesheet")
   body
+    a(href=`/overview?path=${path}`) Back
     p This is a slideshow
 
     div#img-display.hidden
@@ -13,8 +14,10 @@ html
         source(src="")
 
     button#ctrl-previous Previous
+    button#ctrl-play-pause TODO: Play/Pause
     button#ctrl-next Next
 
     pre.hidden#slideshow-path= `${path}`
     pre.hidden#slideshow-files= `${JSON.stringify(files)}`
+    pre.hidden#slideshow-config= `${JSON.stringify(config)}`
     script(src="/static/scripts/slideshow.js")

@@ -1,3 +1,4 @@
+const config = require('config');
 const express = require('express');
 
 const fsList = require('../utils/fs-list');
@@ -55,8 +56,9 @@ router.get('/slideshow', (req, res, next) => {
     res.render(
       'slideshow',
       {
+        config: config.get('service.slideshow'),
         files,
-        path
+        path,
       }
     );
   });
