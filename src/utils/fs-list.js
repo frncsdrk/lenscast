@@ -31,6 +31,7 @@ const listDirectories = (path, cb) => {
       files
         .filter(dirent => dirent.isDirectory())
         .map(dir => dir.name)
+        .sort()
     );
   });
 };
@@ -53,6 +54,21 @@ const listFiles = (path, cb) => {
             isImage: isImage(file.name),
             isVideo: isVideo(file.name),
           }
+        })
+        .sort((a, b) => {
+          // Ignore case
+          const nameA = a.name.toLowerCase();
+          const nameB = b.name.toLowerCase();
+
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+
+          // names must be equal
+          return 0;
         })
     );
   });
