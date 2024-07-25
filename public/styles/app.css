@@ -3,6 +3,21 @@ body {
   height: auto;
 }
 
+.overview-grid {}
+
+.file-preview {
+  width: 320px;
+  height: auto;
+  margin: 10px;
+  float: left;
+}
+
+#display-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .hidden {
   display: none;
 }

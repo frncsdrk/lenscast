@@ -1,6 +1,7 @@
 var filePath;
 var fileList;
 var currentFileIdx = 0;
+var playPause = true;
 var config;
 
 addEventListener('load', function() {
@@ -16,6 +17,14 @@ addEventListener('load', function() {
   addControls();
   showFile(currentFileIdx);
 });
+
+function setPlayPause(v) {
+  playPause = v;
+}
+
+function togglePlayPause() {
+  setPlayPause(!playPause);
+}
 
 function getImgDisplay() {
   // var imgDisplay = document.querySelector('#img-display');
@@ -40,6 +49,12 @@ function configure() {
   if (config.video.autoplay) {
     getVidDisplay().video.autoplay = true;
   }
+
+  getVidDisplay().video.addEventListener('ended', (e) => {
+    if (playPause) {
+      showNextFile();
+    }
+  });
 }
 
 function showFile(idx) {
@@ -50,6 +65,9 @@ function showFile(idx) {
     getImgDisplay().container.classList.remove('hidden');
     getImgDisplay().img.src = `/api/image?path=${filePath}/${file.name}`;
     // TODO: Load next file after n seconds
+    if (playPause) {
+      setTimeout(showNextFile, config.image.duration * 1000);
+    }
   } else if (file.isVideo) {
     getImgDisplay().container.classList.add('hidden');
     getVidDisplay().container.classList.remove('hidden');
@@ -68,6 +86,8 @@ function showPreviousFile() {
     currentFileIdx -= 1;
   }
 
+  setPlayPause(false);
+
   showFile(currentFileIdx);
 }
 
@@ -85,9 +105,20 @@ function showNextFile() {
 function addControls() {
   prevBtn = document.querySelector('#ctrl-previous');
   nextBtn = document.querySelector('#ctrl-next');
+  playPauseBtn = document.querySelector('#ctrl-play-pause');
 
-  prevBtn.addEventListener('click', showPreviousFile);
-  nextBtn.addEventListener('click', showNextFile);
+  prevBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showPreviousFile();
+  });
+  nextBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showNextFile();
+  });
+  playPauseBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    togglePlayPause();
+  });
 
   document.addEventListener('click', showNextFile);
   document.addEventListener('keypress', function(e) {

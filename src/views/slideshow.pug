@@ -6,12 +6,13 @@ html
     a(href=`/overview?path=${path}`) Back
     p This is a slideshow
 
-    div#img-display.hidden
-      img(src="")
+    div#display-container
+      div#img-display.hidden
+        img(src="")
 
-    div#vid-display.hidden
-      video(controls)
-        source(src="")
+      div#vid-display.hidden
+        video(controls)
+          source(src="")
 
     button#ctrl-previous Previous
     button#ctrl-play-pause TODO: Play/Pause

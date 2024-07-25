@@ -1,11 +1,12 @@
 html
   head
     title Overview | Lenscast
+    link(href="/static/styles/app.css" rel="stylesheet")
   body
     a(href=`/slideshow?path=${path}`) Slideshow
-    ul
+    div.overview-grid
       for file in files
-        li
+        div.file-preview
           if file.isImage
             img(src=`/api/image?path=${path}/${file.name}` width=320 height=240)
             p
