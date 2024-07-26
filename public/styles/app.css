@@ -1,7 +1,38 @@
 body {
   width: 100%;
   height: auto;
+  margin: 0;
+  padding: 0;
+
+  color: #eee;
+
+  background: #222;
 }
+
+a {
+  color: #2d61e5;
+}
+a:visited {
+  color: #1f4ab7;
+}
+
+.btn {
+  padding: 0.25em 0.5em;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  backround: #444;
+  display: inline-block;
+}
+
+#navbar {
+  width: 100%;
+  height: auto;
+  margin: 0.5em;
+  float: left;
+}
+.navbar-element {}
 
 .overview-grid {}
 
@@ -13,6 +44,12 @@ body {
 }
 
 #display-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#slideshow-ctrl {
   display: flex;
   align-items: center;
   justify-content: center;

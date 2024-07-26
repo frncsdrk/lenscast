@@ -20,6 +20,13 @@ addEventListener('load', function() {
 
 function setPlayPause(v) {
   playPause = v;
+
+  var btn = document.querySelector('#ctrl-play-pause');
+  if (playPause) {
+    btn.innerText = 'Pause';
+  } else {
+    btn.innerText = 'Play';
+  }
 }
 
 function togglePlayPause() {
@@ -27,8 +34,6 @@ function togglePlayPause() {
 }
 
 function getImgDisplay() {
-  // var imgDisplay = document.querySelector('#img-display');
-
   return {
     container: document.querySelector('#img-display'),
     img: document.querySelector('#img-display img'),
@@ -36,8 +41,6 @@ function getImgDisplay() {
 }
 
 function getVidDisplay() {
-  // var imgDisplay = document.querySelector('#img-display');
-
   return {
     container: document.querySelector('#vid-display'),
     video: document.querySelector('#vid-display video'),
@@ -64,7 +67,7 @@ function showFile(idx) {
     getVidDisplay().container.classList.add('hidden');
     getImgDisplay().container.classList.remove('hidden');
     getImgDisplay().img.src = `/api/image?path=${filePath}/${file.name}`;
-    // TODO: Load next file after n seconds
+    // Load next file after n seconds
     if (playPause) {
       setTimeout(showNextFile, config.image.duration * 1000);
     }
@@ -73,7 +76,7 @@ function showFile(idx) {
     getVidDisplay().container.classList.remove('hidden');
     getVidDisplay().source.src = `/api/video?path=${filePath}/${file.name}`;
     getVidDisplay().video.load();
-    // TODO: Load next file after video played once
+    // After video played once next file is opened via event handler
   }
 }
 
@@ -98,6 +101,8 @@ function showNextFile() {
   } else {
     currentFileIdx += 1;
   }
+
+  setPlayPause(true);
 
   showFile(currentFileIdx);
 }
@@ -132,6 +137,9 @@ function addControls() {
       case 'k':
       case 'h':
         showPreviousFile();
+        break;
+      case 'p':
+        togglePlayPause();
         break;
     }
   });

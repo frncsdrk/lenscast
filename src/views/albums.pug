@@ -1,7 +1,12 @@
 html
   head
     title Albums | Lenscast
+    link(href="/static/styles/app.css" rel="stylesheet")
   body
+    nav#navbar
+      div.navbar-element
+        h3 Lenscast
+
     h1 Albums
     ul
       for dir in directories
