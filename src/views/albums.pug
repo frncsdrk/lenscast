@@ -1,14 +1,8 @@
-html
-  head
-    title Albums | Lenscast
-    link(href="/static/styles/app.css" rel="stylesheet")
-  body
-    nav#navbar
-      div.navbar-element
-        h3 Lenscast
+extends layouts/main
 
-    h1 Albums
-    ul
-      for dir in directories
-        li
-          a(href='/overview?path=' + dir)= dir
+block content
+  h1 Albums
+  ul
+    for dir in directories
+      li
+        a(href='/overview?path=' + dir)= dir

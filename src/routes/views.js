@@ -17,6 +17,7 @@ router.get('/albums', (req, res, next) => {
     res.render(
       'albums',
       {
+        title: 'Albums',
         directories
       }
     );
@@ -29,6 +30,7 @@ router.get('/overview', (req, res, next) => {
     res.render(
       'overview',
       {
+        title: 'Overview',
         files,
         path
       }
@@ -41,6 +43,7 @@ router.get('/detail', (req, res, next) => {
   res.render(
     'detail',
     {
+      title: 'Detail',
       path,
       file: {
         isImage: fsList.isImage(path),
@@ -56,6 +59,7 @@ router.get('/slideshow', (req, res, next) => {
     res.render(
       'slideshow',
       {
+        title: 'Slideshow',
         config: config.get('service.slideshow'),
         files,
         path,

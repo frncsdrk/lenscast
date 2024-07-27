@@ -1,12 +1,10 @@
-html
-  head
-    title Detail | Lenscast
-    link(href="/static/styles/app.css" rel="stylesheet")
-  body
-    if file.isImage
-      img(src=`/api/image?path=${path}`)
-      p= `${path}`
-    else if file.isVideo
-      video(controls)
-        source(src=`/api/video?path=${path}`)
-      p= `${path}`
+extends layouts/main
+
+block content
+  if file.isImage
+    img(src=`/api/image?path=${path}`)
+    p= `${path}`
+  else if file.isVideo
+    video(controls)
+      source(src=`/api/video?path=${path}`)
+    p= `${path}`

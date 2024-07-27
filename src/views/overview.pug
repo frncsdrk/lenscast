@@ -1,19 +1,16 @@
-html
-  head
-    title Overview | Lenscast
-    link(href="/static/styles/app.css" rel="stylesheet")
-  body
-    a(href=`/slideshow?path=${path}`) Slideshow
-    div.overview-grid
-      for file in files
-        div.file-preview
-          if file.isImage
-            img(src=`/api/image?path=${path}/${file.name}` width=320 height=240)
-            p
-              a(href=`/detail?path="${path}/${file.name}"`)= `${path}/${file.name}`
-          else if file.isVideo
-            video(width=320 height=240 controls)
-              source(src=`/api/video?path=${path}/${file.name}`)
-            p
-              a(href=`/detail?path="${path}/${file.name}"`)= `${path}/${file.name}`
+extends layouts/main
 
+block content
+  a(href=`/slideshow?path=${path}`) Slideshow
+  div.overview-grid
+    for file in files
+      div.file-preview
+        if file.isImage
+          img(src=`/api/image?path=${path}/${file.name}` width=320 height=240)
+          p
+            a(href=`/detail?path="${path}/${file.name}"`)= `${path}/${file.name}`
+        else if file.isVideo
+          video(width=320 height=240 controls)
+            source(src=`/api/video?path=${path}/${file.name}`)
+          p
+            a(href=`/detail?path="${path}/${file.name}"`)= `${path}/${file.name}`
