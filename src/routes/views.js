@@ -2,6 +2,7 @@ const config = require('config');
 const express = require('express');
 
 const fsList = require('../utils/fs-list');
+const pkg = require('../../package.json');
 
 const router = express.Router();
 
@@ -18,6 +19,7 @@ router.get('/albums', (req, res, next) => {
       'albums',
       {
         title: 'Albums',
+        version: pkg.version,
         directories
       }
     );
@@ -31,6 +33,7 @@ router.get('/overview', (req, res, next) => {
       'overview',
       {
         title: 'Overview',
+        version: pkg.version,
         files,
         path
       }
@@ -44,6 +47,7 @@ router.get('/detail', (req, res, next) => {
     'detail',
     {
       title: 'Detail',
+      version: pkg.version,
       path,
       file: {
         isImage: fsList.isImage(path),
@@ -60,6 +64,7 @@ router.get('/slideshow', (req, res, next) => {
       'slideshow',
       {
         title: 'Slideshow',
+        version: pkg.version,
         config: config.get('service.slideshow'),
         files,
         path,

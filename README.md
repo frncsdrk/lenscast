@@ -42,10 +42,11 @@ pnpm run docs:generate
   - [x] express
   - [x] nodemon
   - [x] apidoc
+  - [ ] [i18next](https://www.npmjs.com/package/i18next-http-middleware)
 - [ ] Configuration
   - [x] Base directory
-  - [ ] Video autoplay
-  - [ ] Slideshow: Display photo for n seconds
+  - [x] Video autoplay
+  - [x] Slideshow: Display photo for n seconds
 - [ ] List files
   - [x] File names
   - [x] Differentiate between directories and files
@@ -54,13 +55,13 @@ pnpm run docs:generate
 - [ ] Overlay (full-screen)
   - [ ] Controls
     - [ ] Close
-    - [ ] Forward
-    - [ ] Back
+    - [x] Forward
+    - [x] Back
   - [ ] Photos
   - [ ] Videos
 - [ ] Slideshow
-  - [ ] Photos
-  - [ ] Videos
+  - [x] Photos
+  - [x] Videos
 - [ ] Responsiveness (Mobile / TV friendliness)
 
 ## Thumbnails
