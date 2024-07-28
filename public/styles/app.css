@@ -38,12 +38,15 @@ a:visited {
   height: auto;
   margin: 0 0 1em 0;
   padding: 0.5em 1em;
-  /*
-  float: left;
-  */
   background-color: #444;
 }
-.navbar-element {}
+.navbar-left {
+}
+.navbar-right {
+}
+.navbar-element {
+  padding: 1em;
+}
 .navbar-element a {
   color: #eee;
   text-decoration: none;
@@ -68,19 +71,35 @@ a:visited {
   float: left;
 }
 
-#display-container {
+.display-wrapper {
   min-height: 75%;
+  display: block;
+}
+#display-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+/* TODO: animations */
+#img-display {}
+#vid-display {}
 
 #slideshow-ctrl {
+  width: 100%;
+  margin-top: auto;
+  position: fixed;
+  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.bold {
+  font-weight: bold;
+}
+.float-right {
+  float: right;
+}
 .hidden {
   display: none;
 }

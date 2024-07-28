@@ -4,13 +4,14 @@ block content
   a(href=`/overview?path=${path}`) Back
   p This is a slideshow
 
-  div#display-container
-    div#img-display.hidden
-      img(src="")
+  div.display-wrapper
+    div#display-container
+      div#img-display.hidden
+        img(src="")
 
-    div#vid-display.hidden
-      video(controls)
-        source(src="")
+      div#vid-display.hidden
+        video(controls)
+          source(src="")
 
   div#slideshow-ctrl
     button#ctrl-previous.btn Previous
