@@ -88,6 +88,7 @@ function showPreviousFile() {
   } else {
     currentFileIdx -= 1;
   }
+  getVidDisplay().video.pause();
 
   setPlayPause(false);
 
@@ -101,6 +102,7 @@ function showNextFile() {
   } else {
     currentFileIdx += 1;
   }
+  getVidDisplay().video.pause();
 
   setPlayPause(true);
 
