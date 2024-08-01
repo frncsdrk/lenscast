@@ -21,11 +21,11 @@ addEventListener('load', function() {
 function setPlayPause(v) {
   playPause = v;
 
-  var btn = document.querySelector('#ctrl-play-pause');
+  var btnIcon = document.querySelector('#ctrl-play-pause svg use');
   if (playPause) {
-    btn.innerText = 'Pause';
+    btnIcon.setAttribute('href', '/static/vendor/feather-icons/feather-sprite.svg#pause');
   } else {
-    btn.innerText = 'Play';
+    btnIcon.setAttribute('href', '/static/vendor/feather-icons/feather-sprite.svg#play');
   }
 }
 

@@ -1,10 +1,15 @@
 extends layouts/main
 
 block content
-  if file.isImage
-    img(src=`/api/image?path=${path}`)
-    p= `${path}`
-  else if file.isVideo
-    video(controls)
-      source(src=`/api/video?path=${path}`)
-    p= `${path}`
+  //a.btn(href=`/overview?path=${path}`)
+  //  svg(class="feather")
+  //    use(href="/static/vendor/feather-icons/feather-sprite.svg#x")
+
+  div
+    if file.isImage
+      img(src=`/api/image?path=${path}`)
+      p= `${path}`
+    else if file.isVideo
+      video(controls)
+        source(src=`/api/video?path=${path}`)
+      p= `${path}`

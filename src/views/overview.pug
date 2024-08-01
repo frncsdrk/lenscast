@@ -1,7 +1,10 @@
 extends layouts/main
 
 block content
-  a(href=`/slideshow?path=${path}`) Slideshow
+  a.btn(href=`/slideshow?path=${path}`)
+    svg(class="feather")
+      use(href="/static/vendor/feather-icons/feather-sprite.svg#monitor")
+
   div.overview-grid
     for file in files
       div.file-preview

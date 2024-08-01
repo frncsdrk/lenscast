@@ -1,8 +1,7 @@
 extends layouts/main
 
 block content
-  a(href=`/overview?path=${path}`)
-    // i(data-feather="circle")
+  a.btn(href=`/overview?path=${path}`)
     svg(class="feather")
       use(href="/static/vendor/feather-icons/feather-sprite.svg#arrow-left")
   p This is a slideshow
@@ -17,15 +16,18 @@ block content
           source(src="")
 
   div#slideshow-ctrl
-    button#ctrl-previous.btn Previous
-    button#ctrl-play-pause.btn Pause
-    button#ctrl-next.btn Next
+    button#ctrl-previous.btn
+      svg(class="feather")
+        use(href="/static/vendor/feather-icons/feather-sprite.svg#skip-back")
+    button#ctrl-play-pause.btn
+      svg(class="feather")
+        use(href="/static/vendor/feather-icons/feather-sprite.svg#pause")
+    button#ctrl-next.btn
+      svg(class="feather")
+        use(href="/static/vendor/feather-icons/feather-sprite.svg#skip-forward")
 
   pre.hidden#slideshow-path= `${path}`
   pre.hidden#slideshow-files= `${JSON.stringify(files)}`
   pre.hidden#slideshow-config= `${JSON.stringify(config)}`
 
-  // script(src="/static/vendor/feather-icons/feather.min.js")
-  // script.
-  //   feather.replace();
   script(src="/static/scripts/slideshow.js")
