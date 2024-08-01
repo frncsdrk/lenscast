@@ -81,8 +81,12 @@ a:visited {
   justify-content: center;
 }
 /* TODO: animations */
-#img-display {}
-#vid-display {}
+#img-display {
+  transition: opacity 1s;
+}
+#vid-display {
+  transition: opacity 1s;
+}
 
 #slideshow-ctrl {
   width: 100%;
@@ -103,3 +107,54 @@ a:visited {
 .hidden {
   display: none;
 }
+.invisible {
+  opacity: 100%;
+}
+.opaque {
+  opacity: 100%;
+}
+
+.feather {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+/*
+.fade-in {
+  animation: fadeIn 1s;
+  -webkit-animation: fadeIn 1s;
+  -moz-animation: fadeIn 1s;
+  -o-animation: fadeIn 1s;
+  -ms-animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+*/

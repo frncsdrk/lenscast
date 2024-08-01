@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# Copy feather icons from node_modules to vendor directory
+
+cp -r node_modules/feather-icons/dist/ public/vendor/feather-icons
