@@ -50,8 +50,8 @@ router.get('/detail', (req, res, next) => {
       version: pkg.version,
       path,
       file: {
-        isImage: fsList.isImage(path),
-        isVideo: fsList.isVideo(path),
+        isImage: fsList.isImage(`${path}`),
+        isVideo: fsList.isVideo(`${path}`),
       },
     }
   );

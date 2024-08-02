@@ -2,7 +2,9 @@ extends layouts/main
 
 block content
   h1 Albums
-  ul
-    for dir in directories
-      li
-        a(href='/overview?path=' + dir)= dir
+  for dir in directories
+    a(href='/overview?path=' + dir)
+      div.album-element
+        svg(class="feather")
+          use(href="/static/vendor/feather-icons/feather-sprite.svg#folder")
+        p= dir
