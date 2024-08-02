@@ -66,6 +66,8 @@ a:visited {
   width: 320px;
   height: 240px;
   float: left;
+  text-align: center;
+  align-content: center;
 }
 .album-element:hover {
   background-color: #444;
@@ -131,6 +133,10 @@ a:visited {
   stroke-linecap: round;
   stroke-linejoin: round;
   fill: none;
+}
+.feather-big {
+  width: 48px;
+  height: 48px;
 }
 
 /*

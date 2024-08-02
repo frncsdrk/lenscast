@@ -2,10 +2,10 @@ extends layouts/main
 
 block content
   a.btn(href=`/albums`)
-    svg(class="feather")
+    svg.feather
       use(href="/static/vendor/feather-icons/feather-sprite.svg#arrow-left")
   a.btn(href=`/slideshow?path=${path}`)
-    svg(class="feather")
+    svg.feather
       use(href="/static/vendor/feather-icons/feather-sprite.svg#monitor")
 
   div.overview-grid

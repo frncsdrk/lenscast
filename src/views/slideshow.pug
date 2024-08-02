@@ -2,7 +2,7 @@ extends layouts/main
 
 block content
   a.btn(href=`/overview?path=${path}`)
-    svg(class="feather")
+    svg.feather
       use(href="/static/vendor/feather-icons/feather-sprite.svg#arrow-left")
   p This is a slideshow
 
@@ -17,13 +17,13 @@ block content
 
   div#slideshow-ctrl
     button#ctrl-previous.btn
-      svg(class="feather")
+      svg.feather
         use(href="/static/vendor/feather-icons/feather-sprite.svg#skip-back")
     button#ctrl-play-pause.btn
-      svg(class="feather")
+      svg.feather
         use(href="/static/vendor/feather-icons/feather-sprite.svg#pause")
     button#ctrl-next.btn
-      svg(class="feather")
+      svg.feather
         use(href="/static/vendor/feather-icons/feather-sprite.svg#skip-forward")
 
   pre.hidden#slideshow-path= `${path}`
