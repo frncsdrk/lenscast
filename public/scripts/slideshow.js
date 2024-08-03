@@ -38,8 +38,6 @@ function setLoadingVideo(v) {
 function setPlayPause(v) {
   playPause = v;
 
-  console.log('setPlayPause:', playPause);
-
   var btnIcon = document.querySelector('#ctrl-play-pause svg use');
   if (playPause) {
     btnIcon.setAttribute('href', '/static/vendor/feather-icons/feather-sprite.svg#pause');
@@ -128,9 +126,9 @@ function configure() {
     getVidDisplay().video.autoplay = true;
   }
 
-  getVidDisplay().video.addEventListener('loadeddata', (e) => {
-    // setLoadingVideo(false);
-  });
+  // getVidDisplay().video.addEventListener('loadeddata', (e) => {
+  //   // setLoadingVideo(false);
+  // });
   getVidDisplay().video.addEventListener('ended', (e) => {
     if (playPause) {
       showNextFile();
@@ -145,7 +143,6 @@ function configure() {
 
 function setComputedOpacity(el) {
   var computedStyle = window.getComputedStyle(el);
-  // opacity = computedStyle.getPropertyValue('margin-left');
   el.style.opacity = computedStyle.getPropertyValue('opacity');
 }
 
@@ -154,7 +151,6 @@ function loadImg(file) {
 }
 
 function loadVid(file) {
-  // console.log('loadVid:', getLoadingVideo());
   if (getLoadingVideo() !== `${filePath}/${file.name}`) {
     setLoadingVideo(`${filePath}/${file.name}`);
     getVidDisplay().source.src = `/api/video?path=${filePath}/${file.name}`;
@@ -167,8 +163,6 @@ function showFile(idx) {
   var imgDisplayContainer = getImgDisplay().container;
   var vidDisplayContainer = getVidDisplay().container;
 
-  console.log('showFile');
-
   if (file.isImage) {
     if (vidDisplayContainer.checkVisibility()) {
       // vidDisplayContainer.classList.add('hidden');
@@ -180,25 +174,18 @@ function showFile(idx) {
       imgDisplayContainer.classList.add('fade-out');
     }
 
-    // getImgDisplay().img.src = `/api/image?path=${filePath}/${file.name}`;
     // loadImg(file);
 
-    // if (!imgDisplayContainer.checkVisibility()) {
-      if (imgDisplayContainer.classList.contains('hidden')) {
-        // (First time displaying image)
-        setTimeout(function() {
-          console.log('imgDisplay hidden');
-          imgDisplayContainer.classList.remove('hidden');
+    if (imgDisplayContainer.classList.contains('hidden')) {
+      setTimeout(function() {
+        imgDisplayContainer.classList.remove('hidden');
 
-          imgDisplayContainer.classList.remove('fade-out');
-          imgDisplayContainer.classList.add('fade-in');
-        }, isFirstFile() ? 0 : 1000);
-        setFirstFile(false);
-      }
-      // setComputedOpacity(imgDisplayContainer);
-      // imgDisplayContainer.classList.remove('fade-out');
-      // imgDisplayContainer.classList.add('fade-in');
-    // }
+        imgDisplayContainer.classList.remove('fade-out');
+        imgDisplayContainer.classList.add('fade-in');
+      }, isFirstFile() ? 0 : 1000);
+      setFirstFile(false);
+    }
+
     // Load next file after n seconds
     if (playPause) {
       nextImgTimeout = setTimeout(showNextFile, config.image.duration * 1000);
@@ -214,26 +201,18 @@ function showFile(idx) {
       vidDisplayContainer.classList.add('fade-out');
     }
 
-    // getVidDisplay().source.src = `/api/video?path=${filePath}/${file.name}`;
-    // getVidDisplay().video.load();
     // loadVid(file);
 
-    // if (!vidDisplayContainer.checkVisibility()) {
-      if (vidDisplayContainer.classList.contains('hidden')) {
-        // (First time displaying video)
-        setTimeout(function() {
-          console.log('vidDisplay hidden');
-          vidDisplayContainer.classList.remove('hidden');
+    if (vidDisplayContainer.classList.contains('hidden')) {
+      // (First time displaying video)
+      setTimeout(function() {
+        vidDisplayContainer.classList.remove('hidden');
 
-          vidDisplayContainer.classList.remove('fade-out');
-          vidDisplayContainer.classList.add('fade-in');
-        }, isFirstFile() ? 0 : 1000);
-        setFirstFile(false);
-      }
-      // setComputedOpacity(vidDisplayContainer);
-      // vidDisplayContainer.classList.remove('fade-out');
-      // vidDisplayContainer.classList.add('fade-in');
-    // }
+        vidDisplayContainer.classList.remove('fade-out');
+        vidDisplayContainer.classList.add('fade-in');
+      }, isFirstFile() ? 0 : 1000);
+      setFirstFile(false);
+    }
     // After video played once next file is opened via event handler
   }
 }

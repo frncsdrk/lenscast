@@ -55,13 +55,24 @@ pnpm run docs:generate
 - [ ] Overlay (full-screen)
   - [ ] Controls
     - [ ] Close
-    - [x] Forward
+    - [ ] Forward
+    - [ ] Back
+    - [ ] Play / Pause
+  - [x] Photos
+  - [x] Videos
+- [ ] Detail page
+  - [x] Photos
+  - [x] Videos
+  - [x] Controls
     - [x] Back
-  - [ ] Photos
-  - [ ] Videos
 - [ ] Slideshow
   - [x] Photos
   - [x] Videos
+  - [x] Back
+    - [x] Close
+    - [x] Forward
+    - [x] Back
+    - [x] Play / Pause
 - [ ] Responsiveness (Mobile / TV friendliness)
 
 ## Thumbnails
