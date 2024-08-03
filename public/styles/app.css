@@ -16,6 +16,9 @@ a {
 a:visited {
   color: #1f4ab7;
 }
+a.overwrite {
+  color: #eee;
+}
 
 .btn {
   padding: 1em 2em;
@@ -29,6 +32,7 @@ a:visited {
 }
 .btn:hover {
   background-color: #666;
+  cursor: pointer;
 }
 
 .navbar {
@@ -36,9 +40,12 @@ a:visited {
   width: 100%;
   */
   height: auto;
-  margin: 0 0 1em 0;
+  margin: 0;
   padding: 0.5em 1em;
   background-color: #444;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  z-index: 10;
+  position: relative;
 }
 .navbar-left {
 }
@@ -66,6 +73,7 @@ a:visited {
   width: 320px;
   height: 240px;
   float: left;
+  color: #eee;
   text-align: center;
   align-content: center;
 }
@@ -86,7 +94,7 @@ a:visited {
   min-height: 75%;
   display: block;
 }
-#display-container {
+.display-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -107,6 +115,10 @@ a:visited {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .bold {

@@ -1,10 +1,10 @@
 extends layouts/main
 
 block content
-  a.btn(href=`/albums`)
+  a.btn.overwrite(href=`/albums`)
     svg.feather
       use(href="/static/vendor/feather-icons/feather-sprite.svg#arrow-left")
-  a.btn(href=`/slideshow?path=${path}`)
+  a.btn.overwrite(href=`/slideshow?path=${path}`)
     svg.feather
       use(href="/static/vendor/feather-icons/feather-sprite.svg#monitor")
 

@@ -1,13 +1,13 @@
 extends layouts/main
 
 block content
-  a.btn(href=`/overview?path=${path}`)
+  a.btn.overwrite(href=`/overview?path=${path}`)
     svg.feather
       use(href="/static/vendor/feather-icons/feather-sprite.svg#arrow-left")
   p This is a slideshow
 
   div.display-wrapper
-    div#display-container
+    div.display-container
       div#img-display.hidden
         img(src="")
 
