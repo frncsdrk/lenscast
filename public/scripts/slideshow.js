@@ -1,7 +1,9 @@
 var filePath;
 var fileList;
 var currentFileIdx = 0;
+var firstFile = true;
 var playPause = true;
+var loadingVideo;
 var nextImgTimeout;
 var config;
 
@@ -18,6 +20,20 @@ addEventListener('load', function() {
   addControls();
   showFile(currentFileIdx);
 });
+
+function isFirstFile() {
+  return firstFile;
+}
+function setFirstFile(v) {
+  firstFile = v;
+}
+
+function getLoadingVideo() {
+  return loadingVideo;
+}
+function setLoadingVideo(v) {
+  loadingVideo = v;
+}
 
 function setPlayPause(v) {
   playPause = v;
@@ -61,17 +77,49 @@ function handleAnimationStart(e) {
 
 function handleImgAnimationEnd(e) {
   var el = e.target;
+  var nextFile = fileList[currentFileIdx];
+  var imgDisplayContainer = getImgDisplay().container;
+  var vidDisplayContainer = getVidDisplay().container;
 
   if (el.classList.contains('fade-out')) {
     el.classList.add('hidden');
+  }
+
+  if (nextFile.isVideo) {
+    loadVid(nextFile);
+
+    vidDisplayContainer.classList.remove('fade-out');
+    vidDisplayContainer.classList.add('fade-in');
+  } else if (nextFile.isImage) {
+    loadImg(nextFile);
+
+    el.classList.remove('hidden');
+    imgDisplayContainer.classList.remove('fade-out');
+    imgDisplayContainer.classList.add('fade-in');
   }
 }
 
 function handleVidAnimationEnd(e) {
   var el = e.target;
+  var nextFile = fileList[currentFileIdx];
+  var imgDisplayContainer = getImgDisplay().container;
+  var vidDisplayContainer = getVidDisplay().container;
 
   if (el.classList.contains('fade-out')) {
     el.classList.add('hidden');
+  }
+
+  if (nextFile.isImage) {
+    loadImg(nextFile);
+
+    imgDisplayContainer.classList.remove('fade-out');
+    imgDisplayContainer.classList.add('fade-in');
+  } else if (nextFile.isVideo) {
+    loadVid(nextFile);
+
+    el.classList.remove('hidden');
+    vidDisplayContainer.classList.remove('fade-out');
+    vidDisplayContainer.classList.add('fade-in');
   }
 }
 
@@ -80,6 +128,9 @@ function configure() {
     getVidDisplay().video.autoplay = true;
   }
 
+  getVidDisplay().video.addEventListener('loadeddata', (e) => {
+    // setLoadingVideo(false);
+  });
   getVidDisplay().video.addEventListener('ended', (e) => {
     if (playPause) {
       showNextFile();
@@ -96,6 +147,19 @@ function setComputedOpacity(el) {
   var computedStyle = window.getComputedStyle(el);
   // opacity = computedStyle.getPropertyValue('margin-left');
   el.style.opacity = computedStyle.getPropertyValue('opacity');
+}
+
+function loadImg(file) {
+  getImgDisplay().img.src = `/api/image?path=${filePath}/${file.name}`;
+}
+
+function loadVid(file) {
+  // console.log('loadVid:', getLoadingVideo());
+  if (getLoadingVideo() !== `${filePath}/${file.name}`) {
+    setLoadingVideo(`${filePath}/${file.name}`);
+    getVidDisplay().source.src = `/api/video?path=${filePath}/${file.name}`;
+    getVidDisplay().video.load();
+  }
 }
 
 function showFile(idx) {
@@ -116,16 +180,24 @@ function showFile(idx) {
       imgDisplayContainer.classList.add('fade-out');
     }
 
-    getImgDisplay().img.src = `/api/image?path=${filePath}/${file.name}`;
+    // getImgDisplay().img.src = `/api/image?path=${filePath}/${file.name}`;
+    // loadImg(file);
 
     // if (!imgDisplayContainer.checkVisibility()) {
       if (imgDisplayContainer.classList.contains('hidden')) {
-        // First time displaying image
-        imgDisplayContainer.classList.remove('hidden');
+        // (First time displaying image)
+        setTimeout(function() {
+          console.log('imgDisplay hidden');
+          imgDisplayContainer.classList.remove('hidden');
+
+          imgDisplayContainer.classList.remove('fade-out');
+          imgDisplayContainer.classList.add('fade-in');
+        }, isFirstFile() ? 0 : 1000);
+        setFirstFile(false);
       }
       // setComputedOpacity(imgDisplayContainer);
-      imgDisplayContainer.classList.remove('fade-out');
-      imgDisplayContainer.classList.add('fade-in');
+      // imgDisplayContainer.classList.remove('fade-out');
+      // imgDisplayContainer.classList.add('fade-in');
     // }
     // Load next file after n seconds
     if (playPause) {
@@ -142,17 +214,25 @@ function showFile(idx) {
       vidDisplayContainer.classList.add('fade-out');
     }
 
-    getVidDisplay().source.src = `/api/video?path=${filePath}/${file.name}`;
-    getVidDisplay().video.load();
+    // getVidDisplay().source.src = `/api/video?path=${filePath}/${file.name}`;
+    // getVidDisplay().video.load();
+    // loadVid(file);
 
     // if (!vidDisplayContainer.checkVisibility()) {
       if (vidDisplayContainer.classList.contains('hidden')) {
-        // First time displaying video
-        vidDisplayContainer.classList.remove('hidden');
+        // (First time displaying video)
+        setTimeout(function() {
+          console.log('vidDisplay hidden');
+          vidDisplayContainer.classList.remove('hidden');
+
+          vidDisplayContainer.classList.remove('fade-out');
+          vidDisplayContainer.classList.add('fade-in');
+        }, isFirstFile() ? 0 : 1000);
+        setFirstFile(false);
       }
       // setComputedOpacity(vidDisplayContainer);
-      vidDisplayContainer.classList.remove('fade-out');
-      vidDisplayContainer.classList.add('fade-in');
+      // vidDisplayContainer.classList.remove('fade-out');
+      // vidDisplayContainer.classList.add('fade-in');
     // }
     // After video played once next file is opened via event handler
   }
