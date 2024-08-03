@@ -2,6 +2,7 @@ var filePath;
 var fileList;
 var currentFileIdx = 0;
 var playPause = true;
+var nextImgTimeout;
 var config;
 
 addEventListener('load', function() {
@@ -20,6 +21,8 @@ addEventListener('load', function() {
 
 function setPlayPause(v) {
   playPause = v;
+
+  console.log('setPlayPause:', playPause);
 
   var btnIcon = document.querySelector('#ctrl-play-pause svg use');
   if (playPause) {
@@ -100,6 +103,8 @@ function showFile(idx) {
   var imgDisplayContainer = getImgDisplay().container;
   var vidDisplayContainer = getVidDisplay().container;
 
+  console.log('showFile');
+
   if (file.isImage) {
     if (vidDisplayContainer.checkVisibility()) {
       // vidDisplayContainer.classList.add('hidden');
@@ -124,7 +129,7 @@ function showFile(idx) {
     // }
     // Load next file after n seconds
     if (playPause) {
-      setTimeout(showNextFile, config.image.duration * 1000);
+      nextImgTimeout = setTimeout(showNextFile, config.image.duration * 1000);
     }
   } else if (file.isVideo) {
     if (imgDisplayContainer.checkVisibility()) {
@@ -162,6 +167,7 @@ function showPreviousFile() {
     currentFileIdx -= 1;
   }
   getVidDisplay().video.pause();
+  clearTimeout(nextImgTimeout);
 
   setPlayPause(false);
 
@@ -176,6 +182,7 @@ function showNextFile() {
     currentFileIdx += 1;
   }
   getVidDisplay().video.pause();
+  clearTimeout(nextImgTimeout);
 
   setPlayPause(true);
 
