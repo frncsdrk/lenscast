@@ -1,6 +1,7 @@
 service:
   server:
     port: 9000
+    path: /lenscast/
     root_directory: /home/$whoami/.lenscast
   slideshow:
     image:
