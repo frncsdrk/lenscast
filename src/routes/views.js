@@ -6,10 +6,12 @@ const pkg = require('../../package.json');
 
 const router = express.Router();
 
+const basePath = config.get('service.server.path').replace(/\/$/, '') || '';
+
 router.get('/', (req, res, next) => {
   // res.render('index');
   // Redirect until more features are implemented
-  res.redirect('/albums');
+  res.redirect(basePath + '/albums');
 });
 
 router.get('/albums', (req, res, next) => {
@@ -20,6 +22,7 @@ router.get('/albums', (req, res, next) => {
       {
         title: 'Albums',
         version: pkg.version,
+        basePath,
         directories
       }
     );
@@ -34,6 +37,7 @@ router.get('/overview', (req, res, next) => {
       {
         title: 'Overview',
         version: pkg.version,
+        basePath,
         files,
         path
       }
@@ -48,6 +52,7 @@ router.get('/detail', (req, res, next) => {
     {
       title: 'Detail',
       version: pkg.version,
+      basePath,
       path,
       file: {
         isImage: fsList.isImage(`${path}`),
@@ -65,6 +70,7 @@ router.get('/slideshow', (req, res, next) => {
       {
         title: 'Slideshow',
         version: pkg.version,
+        basePath,
         config: config.get('service.slideshow'),
         files,
         path,

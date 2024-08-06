@@ -1,3 +1,4 @@
+var serverPath;
 var filePath;
 var fileList;
 var currentFileIdx = 0;
@@ -10,6 +11,7 @@ var config;
 addEventListener('load', function() {
   console.log('Hello, slideshow!');
 
+  serverPath = document.querySelector('#server-path').innerText;
   filePath = document.querySelector('#slideshow-path').innerText;
   fileList = JSON.parse(document.querySelector('#slideshow-files').innerText);
   config = JSON.parse(document.querySelector('#slideshow-config').innerText);
@@ -40,9 +42,9 @@ function setPlayPause(v) {
 
   var btnIcon = document.querySelector('#ctrl-play-pause svg use');
   if (playPause) {
-    btnIcon.setAttribute('href', '/static/vendor/feather-icons/feather-sprite.svg#pause');
+    btnIcon.setAttribute('href', `${serverPath}/static/vendor/feather-icons/feather-sprite.svg#pause`);
   } else {
-    btnIcon.setAttribute('href', '/static/vendor/feather-icons/feather-sprite.svg#play');
+    btnIcon.setAttribute('href', `${serverPath}/static/vendor/feather-icons/feather-sprite.svg#play`);
   }
 }
 
@@ -147,13 +149,13 @@ function setComputedOpacity(el) {
 }
 
 function loadImg(file) {
-  getImgDisplay().img.src = `/api/image?path=${filePath}/${file.name}`;
+  getImgDisplay().img.src = `${serverPath}/api/image?path=${filePath}/${file.name}`;
 }
 
 function loadVid(file) {
   if (getLoadingVideo() !== `${filePath}/${file.name}`) {
     setLoadingVideo(`${filePath}/${file.name}`);
-    getVidDisplay().source.src = `/api/video?path=${filePath}/${file.name}`;
+    getVidDisplay().source.src = `${serverPath}/api/video?path=${filePath}/${file.name}`;
     getVidDisplay().video.load();
   }
 }

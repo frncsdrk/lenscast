@@ -1,9 +1,9 @@
 extends layouts/main
 
 block content
-  a.btn.overwrite(href=`/overview?path=${path}`)
+  a.btn.overwrite(href=`${basePath}/overview?path=${path}`)
     svg.feather
-      use(href="/static/vendor/feather-icons/feather-sprite.svg#arrow-left")
+      use(href=`${basePath}/static/vendor/feather-icons/feather-sprite.svg#arrow-left`)
   p This is a slideshow
 
   div.display-wrapper
@@ -18,16 +18,17 @@ block content
   div#slideshow-ctrl
     button#ctrl-previous.btn
       svg.feather
-        use(href="/static/vendor/feather-icons/feather-sprite.svg#skip-back")
+        use(href=`${basePath}/static/vendor/feather-icons/feather-sprite.svg#skip-back`)
     button#ctrl-play-pause.btn
       svg.feather
-        use(href="/static/vendor/feather-icons/feather-sprite.svg#pause")
+        use(href=`${basePath}/static/vendor/feather-icons/feather-sprite.svg#pause`)
     button#ctrl-next.btn
       svg.feather
-        use(href="/static/vendor/feather-icons/feather-sprite.svg#skip-forward")
+        use(href=`${basePath}/static/vendor/feather-icons/feather-sprite.svg#skip-forward`)
 
+  pre.hidden#server-path= `${basePath}`
   pre.hidden#slideshow-path= `${path}`
   pre.hidden#slideshow-files= `${JSON.stringify(files)}`
   pre.hidden#slideshow-config= `${JSON.stringify(config)}`
 
-  script(src="/static/scripts/slideshow.js")
+  script(src=`${basePath}/static/scripts/slideshow.js`)

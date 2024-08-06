@@ -12,7 +12,7 @@ const views = require('./routes/views');
 start = () => {
   const app = express();
 
-  const basePath = config.get('service.server.path').replace(/\/$/, '');;
+  const basePath = config.get('service.server.path').replace(/\/$/, '') || '';
 
   app.use(express.json());
   app.use(express.text({ limit: '50mb', type: 'text/*' }));
@@ -31,6 +31,7 @@ start = () => {
 
   server = app.listen(process.env.LENSCAST_PORT || config.get('service.server.port'), () => {
     console.log('app is running on', server.address().port);
+    console.log('with base path:', basePath);
   });
 }
 

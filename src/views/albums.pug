@@ -3,8 +3,8 @@ extends layouts/main
 block content
   h1 Album
   for dir in directories
-    a(href='/overview?path=' + dir)
+    a(href=`${basePath}/overview?path=${dir}`)
       div.album-element
         svg.feather.feather-big
-          use(href="/static/vendor/feather-icons/feather-sprite.svg#folder")
+          use(href=`${basePath}/static/vendor/feather-icons/feather-sprite.svg#folder`)
         p= dir
