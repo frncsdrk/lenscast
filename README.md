@@ -110,7 +110,7 @@ and improvements are very welcome.
 - [ ] Responsiveness (Mobile / TV friendliness)
   - [x] meta scale to device width
 - [ ] Browsers
-  - [ ] Amazon Sikd
+  - [ ] Amazon Silk -- Problems with slideshow and icons
   - [ ] Opera One
 
 ## Thumbnails
