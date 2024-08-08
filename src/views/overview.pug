@@ -4,19 +4,22 @@ block content
   a.btn.overwrite(href=`${basePath}/albums`)
     svg.feather
       use(href=`${basePath}/static/vendor/feather-icons/feather-sprite.svg#arrow-left`)
+    span.sr-only Back
   a.btn.overwrite(href=`${basePath}/slideshow?path=${path}`)
     svg.feather
       use(href=`${basePath}/static/vendor/feather-icons/feather-sprite.svg#monitor`)
+    span.sr-only Slideshow
 
   div.overview-grid
     for file in files
       div.file-preview
         if file.isImage
-          img(src=`${basePath}/api/image?path=${path}/${file.name}` width=320 height=240)
+          img(src=`${basePath}/api/image?path=${path}/${file.name}` loading="lazy" alt=`${path}/${file.name}` width=320 height=240)
           p
             a(href=`${basePath}/detail?path="${path}/${file.name}"`)= `${path}/${file.name}`
         else if file.isVideo
-          video(width=320 height=240 controls)
+          video(controls preload="none" width=320 height=240)
             source(src=`${basePath}/api/video?path=${path}/${file.name}`)
+            p= `${path}/${file.name}`
           p
             a(href=`${basePath}/detail?path="${path}/${file.name}"`)= `${path}/${file.name}`
