@@ -11,7 +11,7 @@ const router = express.Router();
  * @apiName GetImage
  * @apiGroup Image
  *
- * @apiVersion 0.0.0
+ * @apiVersion 0.1.0
  *
  * @apiQuery {String}  path    Path to image in root directory
  *

@@ -12,7 +12,7 @@ const router = express.Router();
  * @apiName GetVideo
  * @apiGroup Video
  *
- * @apiVersion 0.0.0
+ * @apiVersion 0.1.0
  *
  * @apiQuery {String}  path    Path to video in root directory
  *

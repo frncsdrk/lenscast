@@ -9,7 +9,7 @@ const router = express.Router();
  * @apiName Healthz
  * @apiGroup Health
  *
- * @apiVersion 0.0.0
+ * @apiVersion 0.1.0
  *
  * @apiSuccess {String}  message    Message text
  *
