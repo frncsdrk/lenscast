@@ -73,7 +73,7 @@ and improvements are very welcome.
   - [x] git repo
   - [x] pnpm
   - [x] nodemon
-  - [ ] pm2
+  - [x] pm2
   - [x] express
   - [x] apidoc
   - [ ] [i18next](https://www.npmjs.com/package/i18next-http-middleware)
@@ -99,7 +99,7 @@ and improvements are very welcome.
   - [x] Videos
   - [x] Controls
     - [x] Back
-- [ ] Slideshow
+- [x] Slideshow
   - [x] Photos
   - [x] Videos
   - [x] Back
@@ -108,6 +108,10 @@ and improvements are very welcome.
     - [x] Back
     - [x] Play / Pause
 - [ ] Responsiveness (Mobile / TV friendliness)
+  - [x] meta scale to device width
+- [ ] Browsers
+  - [ ] Amazon Sikd
+  - [ ] Opera One
 
 ## Thumbnails
 
