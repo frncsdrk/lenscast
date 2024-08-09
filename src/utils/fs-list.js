@@ -14,11 +14,18 @@ const getFileExtension = (filename) => {
 
 const isImage = (filename) => {
   // TODO: Add svg support
-  return ['png', 'jpg', 'jpeg', 'gif'].includes(getFileExtension(filename));
+  return [
+    'gif', 'GIF',
+    'jpg', 'jpeg', 'JPG', 'JPEG',
+    'png', 'PNG',
+  ].includes(getFileExtension(filename));
 };
 
 const isVideo = (filename) => {
-  return ['mp4', 'webm'].includes(getFileExtension(filename));
+  return [
+    'mp4', 'MP4',
+    'webm', 'WEBM',
+  ].includes(getFileExtension(filename));
 };
 
 const listDirectories = (path, cb) => {

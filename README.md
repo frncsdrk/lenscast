@@ -121,6 +121,7 @@ and improvements are very welcome.
 
 - [feathericons](https://feathericons.com/)
 - [samplelib](https://samplelib.com/)
+- [Sample Files](https://getsamplefiles.com/)
 
 ## Contributing
 
