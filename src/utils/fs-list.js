@@ -18,12 +18,14 @@ const isImage = (filename) => {
     'gif', 'GIF',
     'jpg', 'jpeg', 'JPG', 'JPEG',
     'png', 'PNG',
+    'webp', 'WEBP',
   ].includes(getFileExtension(filename));
 };
 
 const isVideo = (filename) => {
   return [
     'mp4', 'MP4',
+    'ogg', 'OGG',
     'webm', 'WEBM',
   ].includes(getFileExtension(filename));
 };
