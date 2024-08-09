@@ -76,6 +76,7 @@ and improvements are very welcome.
   - [x] pm2
   - [x] express
   - [x] apidoc
+  - [ ] logging
   - [ ] [i18next](https://www.npmjs.com/package/i18next-http-middleware)
 - [ ] Configuration
   - [x] Base directory
@@ -102,16 +103,14 @@ and improvements are very welcome.
 - [x] Slideshow
   - [x] Photos
   - [x] Videos
-  - [x] Back
+  - [x] Controls
     - [x] Close
     - [x] Forward
     - [x] Back
     - [x] Play / Pause
+  - [ ] Calculate max display size of photos and videos
 - [ ] Responsiveness (Mobile / TV friendliness)
   - [x] meta scale to device width
-- [ ] Browsers
-  - [ ] Amazon Silk -- Problems with slideshow and icons
-  - [ ] Opera One
 
 ## Thumbnails
 
