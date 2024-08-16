@@ -23,6 +23,7 @@ Add a file called `local.EXT`, e.g. `local.yml` like described [here](https://gi
 
 ```
 pnpm i
+pnpm run bootstrap
 pnpm run start -- port=9000
 ```
 
@@ -31,6 +32,7 @@ pnpm run start -- port=9000
 ```
 pnpm i -g pm2
 pnpm i
+pnpm run bootstrap
 pm2 start bin/www
 ```
 

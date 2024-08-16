@@ -5,6 +5,7 @@
   "main": "bin/www",
   "private": true,
   "scripts": {
+    "bootstrap": "./setup-feather-icons",
     "dev": "nodemon --ignore dist/ --ignore test/",
     "docs:generate": "apidoc -i src -o docs",
     "start": "./bin/www"
