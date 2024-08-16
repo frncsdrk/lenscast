@@ -1,6 +1,8 @@
 const fs = require('fs');
 const config = require('config');
 
+const logger = require('../logger');
+
 const getRootDirectory = () => {
   let dir = config.get('service.server.root_directory').replace('$whoami', process.env.USER);
   if (dir.charAt(dir.length - 1) !== '/') dir += '/';
@@ -33,7 +35,8 @@ const isVideo = (filename) => {
 const listDirectories = (path, cb) => {
   fs.readdir(path, { withFileTypes: true }, (err, files) => {
     if (err) {
-      console.log(err);
+      logger.error(err);
+      return cb([]);
     }
 
     cb(
@@ -48,7 +51,8 @@ const listDirectories = (path, cb) => {
 const listFiles = (path, cb) => {
   fs.readdir(path, { withFileTypes: true }, (err, files) => {
     if (err) {
-      console.log(err);
+      logger.error(err);
+      return cb([]);
     }
 
     cb(

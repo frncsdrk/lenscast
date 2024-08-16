@@ -4,6 +4,8 @@ const express = require('express')
 const cors = require('cors')
 const config = require('config');
 
+const logger = require('./logger');
+
 const healthz = require('./routes/healthz');
 const image = require('./routes/image');
 const video = require('./routes/video');
@@ -30,8 +32,8 @@ start = () => {
   app.use(basePath + '/', views);
 
   server = app.listen(process.env.LENSCAST_PORT || config.get('service.server.port'), () => {
-    console.log('app is running on', server.address().port);
-    console.log('with base path:', basePath);
+    logger.info('app is running on %s', server.address().port);
+    logger.info('base path: %s', basePath || '/');
   });
 }
 
