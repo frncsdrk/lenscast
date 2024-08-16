@@ -251,10 +251,14 @@ function showNextFile() {
 }
 
 function addControls() {
-  prevBtn = document.querySelector('#ctrl-previous');
-  nextBtn = document.querySelector('#ctrl-next');
-  playPauseBtn = document.querySelector('#ctrl-play-pause');
+  var fullscreenBtn = document.querySelector('#ctrl-fullscreen');
+  var prevBtn = document.querySelector('#ctrl-previous');
+  var nextBtn = document.querySelector('#ctrl-next');
+  var playPauseBtn = document.querySelector('#ctrl-play-pause');
 
+  fullscreenBtn.addEventListener('click', (e) => {
+    document.querySelector('.display-wrapper').requestFullscreen();
+  });
   prevBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     showPreviousFile();
@@ -268,7 +272,7 @@ function addControls() {
     togglePlayPause();
   });
 
-  document.addEventListener('click', showNextFile);
+  // document.addEventListener('click', showNextFile);
   document.addEventListener('keypress', function(e) {
     // Supports vim movements
     switch (e.key) {

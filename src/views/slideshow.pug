@@ -1,11 +1,15 @@
 extends layouts/main
 
 block content
-  a.btn.overwrite(href=`${basePath}/overview?path=${path}`)
-    svg.feather
-      use(href=`${basePath}/static/vendor/feather-icons/feather-sprite.svg#arrow-left`)
-    span.sr-only Back
-  p This is a slideshow
+  aside.page-controls
+    a.btn.overwrite(href=`${basePath}/overview?path=${path}`)
+      svg.feather
+        use(href=`${basePath}/static/vendor/feather-icons/feather-sprite.svg#arrow-left`)
+      span.sr-only Back
+    a.btn.overwrite#ctrl-fullscreen(href=`#`)
+      svg.feather
+        use(href=`${basePath}/static/vendor/feather-icons/feather-sprite.svg#maximize-2`)
+      span.sr-only Fullscreen
 
   div.display-wrapper
     div.display-container

@@ -90,8 +90,14 @@ a.overwrite {
   float: left;
 }
 
+.page-controls {
+  position: fixed;
+}
+
 .display-wrapper {
-  min-height: 75%;
+  min-height: 60vh;
+  max-height: 85vh;
+  overflow: auto;
   display: block;
 }
 .display-container {
@@ -103,15 +109,15 @@ a.overwrite {
   transition: opacity 1s;
 }
 #img-display img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: auto;
 }
 #vid-display {
   transition: opacity 1s;
 }
 #vid-display video {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: auto;
 }
 
 #slideshow-ctrl {
