@@ -5,7 +5,7 @@
   "main": "bin/www",
   "private": true,
   "scripts": {
-    "bootstrap": "./setup-feather-icons",
+    "bootstrap": "pnpm i && ./scripts/setup-feather-icons",
     "dev": "NODE_ENV=dev nodemon --ignore dist/ --ignore test/",
     "docs:generate": "apidoc -i src -o docs",
     "start": "NODE_ENV=prod ./bin/www"

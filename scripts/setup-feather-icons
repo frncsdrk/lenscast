@@ -4,3 +4,5 @@
 
 mkdir -p public/vendor/
 cp -r node_modules/feather-icons/dist/ public/vendor/feather-icons
+
+printf '%s\n' "Setup feather icons"
