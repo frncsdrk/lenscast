@@ -109,15 +109,21 @@ a.overwrite {
   transition: opacity 1s;
 }
 #img-display img {
+  /*
   width: 100%;
   height: auto;
+  */
+  object-fit: contain;
 }
 #vid-display {
   transition: opacity 1s;
 }
 #vid-display video {
+  /*
   width: 100%;
   height: auto;
+  */
+  object-fit: contain;
 }
 
 #slideshow-ctrl {

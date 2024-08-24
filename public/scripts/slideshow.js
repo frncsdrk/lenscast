@@ -150,6 +150,9 @@ function setComputedOpacity(el) {
 
 function loadImg(file) {
   getImgDisplay().img.src = `${serverPath}/api/image?path=${filePath}/${file.name}`;
+
+  // TODO: Scale to 100% if in fullscreen
+  getImgDisplay().img.height = window.screen.height * 0.75;
 }
 
 function loadVid(file) {
@@ -157,6 +160,9 @@ function loadVid(file) {
     setLoadingVideo(`${filePath}/${file.name}`);
     getVidDisplay().source.src = `${serverPath}/api/video?path=${filePath}/${file.name}`;
     getVidDisplay().video.load();
+
+    // TODO: Scale to 100% if in fullscreen
+    getVidDisplay().video.height = window.screen.height * 0.75;
   }
 }
 
