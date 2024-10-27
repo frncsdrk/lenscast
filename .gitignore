@@ -4,3 +4,5 @@ node_modules/
 public/vendor/
 test/js/
 tmp/
+
+*audit.json
