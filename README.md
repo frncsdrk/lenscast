@@ -132,4 +132,4 @@ See [CREDITS](https://github.com/frncsdrk/lenscast/blob/main/CREDITS)
 
 ## License
 
-Unlicense (c) 2024 frncsdrk and contributors
+Unlicense
