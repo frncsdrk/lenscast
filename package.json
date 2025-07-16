@@ -30,9 +30,9 @@
     "node": ">= 20.0.0"
   },
   "dependencies": {
-    "config": "^3.3.12",
+    "config": "^4.0.1",
     "cors": "^2.8.5",
-    "express": "^4.21.2",
+    "express": "^5.1.0",
     "feather-icons": "^4.29.2",
     "js-yaml": "^4.1.0",
     "pug": "^3.0.3",
