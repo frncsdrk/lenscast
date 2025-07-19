@@ -27,8 +27,8 @@ importers:
         specifier: ^3.0.3
         version: 3.0.3
       response-time:
-        specifier: ^2.3.3
-        version: 2.3.3
+        specifier: ^2.3.4
+        version: 2.3.4
       winston:
         specifier: ^3.17.0
         version: 3.17.0
@@ -444,8 +444,8 @@ packages:
     resolution: {integrity: sha512-oVlzkg3ENAhCk2zdv7IJwd/QUD4z2RxRwpkcGY8psCVcCYZNq4wYnVWALHM+brtuJjePWiYF/ClmuDr8Ch5+kg==}
     engines: {node: '>= 0.8'}
 
-  on-headers@1.0.2:
-    resolution: {integrity: sha512-pZAE+FJLoyITytdqK0U5s+FIpjN0JP3OzFi/u8Rx+EV5/W+JTWGXG8xFzevE7AjBfDqHv/8vL8qQsIhHnqRkrA==}
+  on-headers@1.1.0:
+    resolution: {integrity: sha512-737ZY3yNnXy37FHkQxPzt4UZ2UWPWiCZWLvFZ4fu5cueciegX0zGPnrlY6bwRg4FdQOe9YU8MkmJwGhoMybl8A==}
     engines: {node: '>= 0.8'}
 
   once@1.4.0:
@@ -539,8 +539,8 @@ packages:
     resolution: {integrity: sha512-QxrmX1DzraFIi9PxdG5VkRfRwIgjwyud+z/iBwfRRrVmHc+P9Q7u2lSSpQ6bjr2gy5lrqIiU9vb6iAeGf2400A==}
     hasBin: true
 
-  response-time@2.3.3:
-    resolution: {integrity: sha512-SsjjOPHl/FfrTQNgmc5oen8Hr1Jxpn6LlHNXxCIFdYMHuK1kMeYMobb9XN3mvxaGQm3dbegqYFMX4+GDORfbWg==}
+  response-time@2.3.4:
+    resolution: {integrity: sha512-fiyq1RvW5/Br6iAtT8jN1XrNY8WPu2+yEypLbaijWry8WDZmn12azG9p/+c+qpEebURLlQmqCB8BNSu7ji+xQQ==}
     engines: {node: '>= 0.8.0'}
 
   router@2.2.0:
@@ -1095,7 +1095,7 @@ snapshots:
     dependencies:
       ee-first: 1.1.1
 
-  on-headers@1.0.2: {}
+  on-headers@1.1.0: {}
 
   once@1.4.0:
     dependencies:
@@ -1220,10 +1220,10 @@ snapshots:
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
 
-  response-time@2.3.3:
+  response-time@2.3.4:
     dependencies:
       depd: 2.0.0
-      on-headers: 1.0.2
+      on-headers: 1.1.0
 
   router@2.2.0:
     dependencies:
